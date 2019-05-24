@@ -1,4 +1,4 @@
-const Resizer = require("./lib/imageSize");
+const Resizer = require("./lib/Resizer");
 const imgToBase64 = require("./lib/base64");
 const getTemplate = require("./lib/createBlur");
 
