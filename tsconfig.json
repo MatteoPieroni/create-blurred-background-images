@@ -1,0 +1,16 @@
+{ 
+  "compilerOptions": {
+    "lib": ["es6", "dom"],
+    "outDir": "dist",
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true 
+  },
+  "exclude": [ "node_modules" ] 
+}

@@ -10,12 +10,15 @@
   "author": "Matteo Pieroni",
   "license": "ISC",
   "dependencies": {
+    "electron": "^5.0.2",
     "image-to-base64": "^2.0.1",
     "sharp": "^0.22.1",
     "unique-filename": "^1.1.1"
   },
   "devDependencies": {
-    "electron": "^5.0.1",
-    "electron-rebuild": "^1.8.4"
+    "@types/sharp": "^0.22.2",
+    "electron-rebuild": "^1.8.4",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
   }
 }
