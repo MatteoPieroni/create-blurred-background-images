@@ -49,7 +49,6 @@ class Resizer {
         };
 
         this.resizedFile = await this.file.resize(size);
-        console.log(this.resizedFile);
         this.resizedFile.toFile(
           `${uniqueFilename(os.tmpdir(), "img64-temp")}.jpg`,
           (err, data) => {
