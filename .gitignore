@@ -1,2 +1,3 @@
-node_modules
-_temp
+node_modules/
+dist/
+!dist/index.html
