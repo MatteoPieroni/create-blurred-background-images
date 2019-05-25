@@ -12,11 +12,11 @@ const UploadInput = styled.label`
   }
 `;
 
-export const FileSelector: React.FunctionComponent<Props> = props => {
+export const FileSelector: React.FunctionComponent<Props> = (props: Props) => {
   const { handleChange } = props;
   return (
     <UploadInput>
-      Choose picture
+      Choose picture!
       <input type="file" id="picture-upload" onChange={handleChange} />
     </UploadInput>
   );
