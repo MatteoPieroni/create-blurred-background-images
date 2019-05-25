@@ -1,17 +1,26 @@
-{ 
+{
+  "compileOnSave": false,
   "compilerOptions": {
     "lib": ["es6", "dom"],
     "outDir": "dist",
-    "jsx": "react",
-    "target": "es5",
+    "target": "es2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "sourceMap": true,
+    "pretty": true,
+    "newLine": "LF",
+    "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true 
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "jsx": "preserve"
   },
   "exclude": [ "node_modules" ] 
 }

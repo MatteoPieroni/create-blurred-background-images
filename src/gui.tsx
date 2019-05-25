@@ -1,4 +1,4 @@
-document.getElementById("holder").addEventListener("drop", e => {
+/*document.getElementById("holder").addEventListener("drop", e => {
   e.preventDefault();
   e.stopPropagation();
   const { dataTransfer } = e;
@@ -16,3 +16,9 @@ document.getElementById("holder").addEventListener("dragover", e => {
   e.preventDefault();
   e.stopPropagation();
 });
+*/
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { App } from "./components/App";
+
+ReactDOM.render(<App />, document.getElementById("app"));
