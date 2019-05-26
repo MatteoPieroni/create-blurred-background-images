@@ -18,9 +18,5 @@ export const FileDragger: React.FunctionComponent<Props> = props => {
     }
   };
 
-  return (
-    <div onDrop={_handleDrop}>
-      <p>Drop your file here!</p>
-    </div>
-  );
+  return <div onDrop={_handleDrop}>{props.children}</div>;
 };

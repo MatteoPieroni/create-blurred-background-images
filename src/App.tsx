@@ -1,13 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import styled from "styled-components";
 
 const processFile = require("./processFile");
 
-import { FileSelector } from "./components/FileSelector";
-import { FileDragger } from "./components/FileDragger";
+import { SelectScreen } from "./components/SelectScreen";
+import { ProcessingScreen } from "./components/ProcessingScreen";
+import { ResultBase64 } from "./components/ResultBase64";
+
+const StyledContainer = styled.div`
+  height: 100%;
+`;
 
 const App: React.FunctionComponent = () => {
   const [base64, setBase64] = React.useState("");
+  const [processing, setProcessing] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [failure, setFailure] = React.useState(false);
 
   const handleDragOver: (
     event: React.DragEvent<HTMLDivElement>
@@ -17,34 +26,22 @@ const App: React.FunctionComponent = () => {
   };
 
   const processFileAndSetBase64: (file: File) => void = async file => {
+    setProcessing(true);
     // @ts-ignore
     const base64File = await processFile(file.path);
     console.log(base64File);
     setBase64(base64File);
-  };
-
-  const handleChoose: (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => void = async event => {
-    event.preventDefault();
-    event.stopPropagation();
-    const { files } = event.target;
-    if (files) {
-      processFileAndSetBase64(files[0]);
-    }
-  };
-
-  const handleDrop: (files: File) => void = async file => {
-    processFileAndSetBase64(file);
+    setProcessing(false);
   };
 
   return (
-    <div onDragOver={handleDragOver}>
-      <h1>Hi there</h1>
-      <FileSelector handleChange={handleChoose} />
-      <FileDragger handleDrop={handleDrop} />
-      {base64}
-    </div>
+    <StyledContainer onDragOver={handleDragOver}>
+      {!processing && !base64 && (
+        <SelectScreen handleProcess={processFileAndSetBase64} />
+      )}
+      {processing && <ProcessingScreen isProcessing={processing} />}
+      {base64 && <ResultBase64 base64={base64} />}
+    </StyledContainer>
   );
 };
 
