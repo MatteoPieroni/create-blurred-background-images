@@ -6,9 +6,29 @@ interface Props {
 }
 
 const UploadInput = styled.label`
-  display: block;
+  display: inline-block;
+  margin-bottom: 2rem;
+  border-radius: 5px;
+  padding: 1rem 5rem;
+  background: #fff;
+  text-align: center;
+  font-weight: 600;
+  color: #f13c20;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  &:hover {
+    background: #f13c20;
+    color: #fff;
+  }
   input {
-    display: block;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
 `;
 

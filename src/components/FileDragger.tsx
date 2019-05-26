@@ -2,10 +2,11 @@ import * as React from "react";
 
 interface Props {
   handleDrop: (files: File) => void;
+  className: string;
 }
 
 export const FileDragger: React.FunctionComponent<Props> = props => {
-  const { handleDrop } = props;
+  const { className, handleDrop } = props;
 
   const _handleDrop: (
     event: React.DragEvent<HTMLDivElement>
@@ -18,5 +19,9 @@ export const FileDragger: React.FunctionComponent<Props> = props => {
     }
   };
 
-  return <div onDrop={_handleDrop}>{props.children}</div>;
+  return (
+    <div className={className} onDrop={_handleDrop}>
+      {props.children}
+    </div>
+  );
 };

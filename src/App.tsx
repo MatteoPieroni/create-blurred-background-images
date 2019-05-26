@@ -10,6 +10,11 @@ import { ResultBase64 } from "./components/ResultBase64";
 
 const StyledContainer = styled.div`
   height: 100%;
+  background-color: #4056a1;
+  background-image: url(${props => (props.image ? props.image : "")});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;
 
 const App: React.FunctionComponent = () => {
@@ -17,6 +22,7 @@ const App: React.FunctionComponent = () => {
   const [processing, setProcessing] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
   const [failure, setFailure] = React.useState(false);
+  const [processedImage, setProcessedImage] = React.useState("");
 
   const handleDragOver: (
     event: React.DragEvent<HTMLDivElement>
@@ -31,11 +37,12 @@ const App: React.FunctionComponent = () => {
     const base64File = await processFile(file.path);
     console.log(base64File);
     setBase64(base64File);
+    setProcessedImage(base64File);
     setProcessing(false);
   };
 
   return (
-    <StyledContainer onDragOver={handleDragOver}>
+    <StyledContainer image={processedImage} onDragOver={handleDragOver}>
       {!processing && !base64 && (
         <SelectScreen handleProcess={processFileAndSetBase64} />
       )}

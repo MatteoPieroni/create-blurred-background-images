@@ -1,17 +1,29 @@
 import * as React from "react";
+import styled from "styled-components";
 
 export interface IImageProps {
   className: string;
 }
 
+const StyledSvg = styled.svg`
+  tspan {
+    white-space: pre;
+  }
+  .shp0 {
+    opacity: 0.102;
+    fill: #fff;
+  }
+  .shp1 {
+    fill: #fff;
+  }
+`;
+
 export function Image(props: IImageProps) {
   const { className } = props;
   return (
-    <svg
+    <StyledSvg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 56 54"
-      width="56"
-      height="54"
       className={className}
     >
       <defs>
@@ -21,9 +33,6 @@ export function Image(props: IImageProps) {
       </defs>
       <style>
         {`
-          tspan {white - space: pre }
-          .shp0 {opacity: 0.102;fill: #a66df5 }
-          .shp1 {fill: #a66df5 }
         `}
       </style>
       <g id="Dribbble Copy" clipPath="url(#cp1)">
@@ -45,6 +54,6 @@ export function Image(props: IImageProps) {
           />
         </g>
       </g>
-    </svg>
+    </StyledSvg>
   );
 }
