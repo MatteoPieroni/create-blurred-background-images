@@ -1,5 +1,5 @@
 const { app, BrowserWindow } = require("electron");
-const deleteTemp = require("./lib/utils");
+const deleteTemp = require("./dist/lib/utils");
 
 let win;
 

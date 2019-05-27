@@ -1,16 +1,16 @@
 import { Sharp, Metadata } from "sharp";
-const sharp = require('sharp');
+const sharp = require("sharp");
 const os = require("os");
 const uniqueFilename = require("unique-filename");
 
 export interface FileData {
-  tempPath: string,
-  dimensions: Dimensions
+  tempPath: string;
+  dimensions: Dimensions;
 }
 
 export interface Dimensions {
-  width: number,
-  height: number
+  width: number;
+  height: number;
 }
 
 class Resizer {
@@ -44,8 +44,8 @@ class Resizer {
       try {
         const { width, height } = await this.getInfo();
         this.dimensions = {
-          width: size,
-          height: Math.floor((size * height) / width)
+          width,
+          height
         };
 
         this.resizedFile = await this.file.resize(size);
