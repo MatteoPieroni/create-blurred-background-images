@@ -1,8 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 
-interface Props {
+interface IFileSelector {
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  processing: boolean;
 }
 
 const UploadInput = styled.label`
@@ -32,12 +33,17 @@ const UploadInput = styled.label`
   }
 `;
 
-export const FileSelector: React.FunctionComponent<Props> = (props: Props) => {
-  const { handleChange } = props;
+export const FileSelector: React.FunctionComponent<IFileSelector> = props => {
+  const { handleChange, processing } = props;
   return (
     <UploadInput>
       Choose picture!
-      <input type="file" id="picture-upload" onChange={handleChange} />
+      <input
+        type="file"
+        id="picture-upload"
+        onChange={handleChange}
+        disabled={processing}
+      />
     </UploadInput>
   );
 };

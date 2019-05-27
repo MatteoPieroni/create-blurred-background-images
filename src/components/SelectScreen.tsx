@@ -23,10 +23,11 @@ const StyledDiv = styled.div`
 
 export interface ISelectScreenProps {
   handleProcess: (file: File) => void;
+  processing: boolean;
 }
 
 export function SelectScreen(props: ISelectScreenProps) {
-  const { handleProcess } = props;
+  const { handleProcess, processing } = props;
 
   const handleChoose: (
     event: React.ChangeEvent<HTMLInputElement>
@@ -45,10 +46,14 @@ export function SelectScreen(props: ISelectScreenProps) {
 
   return (
     <StyledDiv>
-      <FileDragger className="file-dropper" handleDrop={handleDrop}>
+      <FileDragger
+        className="file-dropper"
+        handleDrop={handleDrop}
+        processing={processing}
+      >
         <Image className="image-svg" />
         <h1>Drag and drop your file here</h1>
-        <FileSelector handleChange={handleChoose} />
+        <FileSelector handleChange={handleChoose} processing={processing} />
       </FileDragger>
     </StyledDiv>
   );

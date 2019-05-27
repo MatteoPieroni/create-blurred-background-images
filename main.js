@@ -22,11 +22,11 @@ function createWindow() {
 app.on("ready", createWindow);
 
 app.on("window-all-closed", async () => {
-  try {
+  /*try {
     await deleteTemp();
   } catch (e) {
     console.log("There has been a problem in deleting the temp file: ", e);
-  }
+  }*/
 
   if (process.platform !== "darwin") {
     app.quit();

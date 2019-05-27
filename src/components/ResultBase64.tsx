@@ -1,16 +1,22 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 export interface IResultBase64Props {
   base64: string;
+  goBack: () => void;
 }
 
 const StyledDiv = styled.div`
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
   justify-content: center;
   height: 100%;
   textarea {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2rem;
     border: none;
     border-radius: 5px;
     padding: 1rem;
@@ -25,10 +31,21 @@ const StyledDiv = styled.div`
 `;
 
 export function ResultBase64(props: IResultBase64Props) {
-  const { base64 } = props;
+  const { base64, goBack } = props;
+  const textAreaRef = React.useRef(null);
+
+  const copyToClipboard: (base64: string) => void = base64 => {
+    textAreaRef.current.select();
+    document.execCommand("copy");
+  };
+
   return (
     <StyledDiv>
-      <textarea readOnly value={base64} />
+      <textarea ref={textAreaRef} readOnly value={base64} />
+      <Button ghost handleClick={goBack}>
+        One more!
+      </Button>
+      <Button handleClick={copyToClipboard}>Copy to clipboard</Button>
     </StyledDiv>
   );
 }
