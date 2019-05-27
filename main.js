@@ -1,4 +1,6 @@
 const { app, BrowserWindow } = require("electron");
+var path = require("path");
+
 const deleteTemp = require("./dist/lib/utils");
 
 let win;
@@ -9,7 +11,9 @@ function createWindow() {
     height: 600,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    backgroundColor: "#4056a1",
+    icon: path.join(__dirname, "dist/assets/icons/png/64x64.png")
   });
 
   win.loadFile("dist/index.html");

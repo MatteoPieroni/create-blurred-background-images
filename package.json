@@ -1,12 +1,14 @@
 {
   "name": "create-blurred-background-images",
-  "version": "0.1.0",
-  "description": "",
+  "productName": "Blurred Background Images",
+  "version": "1.0.0",
+  "description": "This application allows the creation of blurred background base64 images",
   "main": "main.js",
   "scripts": {
     "dev": "tsc && nodemon --watch * || exit 1",
     "prestart": "tsc",
     "start": "electron .",
+    "build-windows": "electron-packager . --icon=dist/assets/icons/win/icon.ico --out=release-builds",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matteo Pieroni",
