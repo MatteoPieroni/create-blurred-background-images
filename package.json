@@ -1,5 +1,5 @@
 {
-  "name": "create-blurred-background-images",
+  "name": "blurred-background-images",
   "productName": "Blurred Background Images",
   "version": "1.0.0",
   "description": "This application allows the creation of blurred background base64 images",
@@ -8,7 +8,7 @@
     "dev": "tsc && nodemon --watch * || exit 1",
     "prestart": "tsc",
     "start": "electron .",
-    "build-windows": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=dist/assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",
+    "build-windows": "electron-packager . blurred-background-images --overwrite --platform=win32 --arch=x64 --icon=dist/assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matteo Pieroni",
