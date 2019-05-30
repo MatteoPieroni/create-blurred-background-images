@@ -10,7 +10,7 @@ You can download the windows x64 program archive here:
 
 ## Usage
 If you download, to run this utility just:
-1. extract the archive in you preferred folder
+1. extract the archive in your preferred folder
 2. execute blurred-background-images.exe
 
 and you're all set! 🍻
