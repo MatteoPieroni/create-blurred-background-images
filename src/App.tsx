@@ -8,6 +8,7 @@ const utils = require("./lib/utils");
 import { SelectScreen } from "./components/SelectScreen";
 import { ResultBase64 } from "./components/ResultBase64";
 import { Error } from "./components/Error";
+import { NavBar } from "./components/NavBar";
 
 const StyledContainer = styled.div`
   height: 100%;
@@ -58,6 +59,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <StyledContainer image={processedImage} onDragOver={handleDragOver}>
+      <NavBar />
       <Error error={error} />
       {!processing && !base64 && (
         <SelectScreen

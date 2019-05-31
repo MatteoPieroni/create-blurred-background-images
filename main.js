@@ -12,6 +12,7 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: true
     },
+    frame: false,
     backgroundColor: "#4056a1",
     icon: path.join(__dirname, "dist/assets/icons/png/64x64.png")
   });
