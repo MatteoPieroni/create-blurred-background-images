@@ -13,5 +13,19 @@ function deleteTemp(): Promise<void> {
   });
 }
 
-module.exports = deleteTemp;
+function isRightImageType(fileType: string): boolean {
+  switch (fileType) {
+    case "image/gif":
+    case "image/jpeg":
+    case "image/png":
+      return true;
+    default:
+      return false;
+  }
+}
+
+module.exports = {
+  deleteTemp,
+  isRightImageType
+};
 export {};

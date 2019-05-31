@@ -5,9 +5,8 @@
   "description": "This application allows the creation of blurred background base64 images",
   "main": "main.js",
   "scripts": {
-    "postinstall": "electron-rebuild",
     "dev": "tsc && nodemon --watch * || exit 1",
-    "prestart": "tsc",
+    "prestart": "electron-rebuild && tsc",
     "start": "electron .",
     "rebuild-dependencies": "electron-rebuild",
     "build-windows": "electron-rebuild && tsc && electron-packager . blurred-background-images --overwrite --platform=win32 --arch=x64 --icon=dist/assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",

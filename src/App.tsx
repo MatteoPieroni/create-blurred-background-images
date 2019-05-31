@@ -3,9 +3,11 @@ import * as ReactDOM from "react-dom";
 import styled from "styled-components";
 
 const processFile = require("./processFile");
+const utils = require("./lib/utils");
 
 import { SelectScreen } from "./components/SelectScreen";
 import { ResultBase64 } from "./components/ResultBase64";
+import { Error } from "./components/Error";
 
 const StyledContainer = styled.div`
   height: 100%;
@@ -31,11 +33,22 @@ const App: React.FunctionComponent = () => {
 
   const processFileAndSetBase64: (file: File) => void = async file => {
     setProcessing(true);
-    // @ts-ignore
-    const base64File = await processFile(file.path);
-    setProcessedImage(base64File);
+    if (utils.isRightImageType(file.type)) {
+      // @ts-ignore
+      const base64File = await processFile(file.path);
+      setProcessedImage(base64File);
+      setBase64(base64File);
+    } else {
+      newError(
+        "We couldn't process the selected file. Are you sure it's an image?"
+      );
+    }
     setProcessing(false);
-    setBase64(base64File);
+  };
+
+  const newError: (string) => void = error => {
+    setError(error);
+    setTimeout(() => setError(""), 3000);
   };
 
   const reset: () => void = () => {
@@ -45,6 +58,7 @@ const App: React.FunctionComponent = () => {
 
   return (
     <StyledContainer image={processedImage} onDragOver={handleDragOver}>
+      <Error error={error} />
       {!processing && !base64 && (
         <SelectScreen
           handleProcess={processFileAndSetBase64}

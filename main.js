@@ -1,7 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 var path = require("path");
 
-const deleteTemp = require("./dist/lib/utils");
+const utils = require("./dist/lib/utils");
 
 let win;
 
@@ -27,7 +27,7 @@ app.on("ready", createWindow);
 
 app.on("window-all-closed", async () => {
   /*try {
-    await deleteTemp();
+    await utils.deleteTemp();
   } catch (e) {
     console.log("There has been a problem in deleting the temp file: ", e);
   }*/
