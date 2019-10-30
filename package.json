@@ -10,6 +10,7 @@
     "start": "electron .",
     "rebuild-dependencies": "electron-rebuild",
     "build-windows": "electron-rebuild && tsc && electron-packager . blurred-background-images --overwrite --platform=win32 --arch=x64 --icon=dist/assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",
+    "build-mac": "electron-rebuild && tsc && electron-packager . blurred-background-images --overwrite --platform=darwin --icon=dist/assets/icons/mac/icon.icns --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",
     "package-windows": "electron-packager . blurred-background-images --overwrite --platform=win32 --arch=x64 --icon=dist/assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Blurred Background Images\" --ignore src/* --ignore release-builds/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
